@@ -31,24 +31,33 @@ const history = [
   }
 ];
 ---
-<section class="relative overflow-hidden bg-[#08090b] px-4 py-24 md:px-8 md:py-32" id="history">
-  <div class="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#12b5ea]/10 blur-3xl"></div>
+
+<section
+  class="relative overflow-hidden bg-[var(--bg)] px-4 py-24 text-[var(--text)] transition-colors duration-500 md:px-8 md:py-32"
+  id="history"
+>
+  <!-- Glow -->
+  <div class="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[var(--primary)]/10 blur-3xl"></div>
 
   <div class="relative mx-auto max-w-7xl">
+
     <div class="mb-16 text-center">
-      <span class="mb-4 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]">
+
+      <span class="mb-4 inline-block rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--primary)] shadow-[var(--shadow-soft)] backdrop-blur-md">
         {t.history.badge}
       </span>
 
-      <h2 class="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+      <h2 class="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.04em] text-[var(--text)] sm:text-5xl md:text-6xl lg:text-7xl">
         {t.history.title}
       </h2>
+
     </div>
 
     <div class="relative">
+
       <button
         id="history-prev"
-        class="hidden md:flex absolute -left-5 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-xl transition hover:bg-[#12b5ea]"
+        class="absolute -left-5 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] backdrop-blur-xl transition hover:bg-[var(--primary)] hover:text-white md:flex"
       >
         <ChevronLeft size={22} />
       </button>
@@ -59,18 +68,20 @@ const history = [
       >
         {
           history.map((item) => (
-            <article class="min-w-[85vw] snap-start rounded-[28px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#12b5ea]/40 hover:shadow-[0_0_50px_rgba(18,181,234,0.12)] sm:min-w-[360px] md:min-w-[430px] md:p-8">
-              <span class="mb-4 inline-block text-sm font-semibold tracking-[0.2em] text-[#12b5ea]">
+            <article class="min-w-[85vw] snap-start rounded-[28px] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-soft)] backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[var(--primary)]/40 sm:min-w-[360px] md:min-w-[430px] md:p-8">
+              
+              <span class="mb-4 inline-block text-sm font-semibold tracking-[0.2em] text-[var(--primary)]">
                 {item.year}
               </span>
 
-              <h3 class="mb-5 text-2xl font-semibold text-white">
+              <h3 class="mb-5 text-2xl font-semibold text-[var(--text)]">
                 {item.title}
               </h3>
 
-              <p class="leading-8 text-white/60">
+              <p class="leading-8 text-[var(--muted)]">
                 {item.description}
               </p>
+
             </article>
           ))
         }
@@ -78,12 +89,15 @@ const history = [
 
       <button
         id="history-next"
-        class="hidden md:flex absolute -right-5 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-xl transition hover:bg-[#12b5ea]"
+        class="absolute -right-5 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] backdrop-blur-xl transition hover:bg-[var(--primary)] hover:text-white md:flex"
       >
         <ChevronRight size={22} />
       </button>
+
     </div>
+
   </div>
+
 </section>
 
 <script>

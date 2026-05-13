@@ -4,7 +4,6 @@ import {
   Store,
   Landmark,
   Boxes,
-  ArrowUpRight
 } from "lucide-react";
 
 const { t } = Astro.props;
@@ -13,56 +12,52 @@ const sectors = [
   {
     title: t.sectors.items[0].title,
     icon: Boxes,
-    description:
-      t.sectors.items[0].description,
+    description: t.sectors.items[0].description,
   },
   {
     title: t.sectors.items[1].title,
     icon: Landmark,
-    description:
-      t.sectors.items[1].description,
+    description: t.sectors.items[1].description,
   },
   {
     title: t.sectors.items[2].title,
     icon: Store,
-    description:
-      t.sectors.items[2].description,
+    description: t.sectors.items[2].description,
   },
   {
     title: t.sectors.items[3].title,
     icon: Truck,
-    description:
-      t.sectors.items[3].description,
+    description: t.sectors.items[3].description,
   },
 ];
 ---
 
-<section class="relative overflow-hidden bg-[#0b0b0c]">
+<section class="relative overflow-hidden bg-[var(--bg)] text-[var(--text)] transition-colors duration-500">
 
   <!-- Hero -->
   <div class="relative h-[420px] overflow-hidden">
 
     <img
       src="/images/Sectores.png"
+      alt=""
       class="h-full w-full object-cover"
     />
 
-    <div class="absolute inset-0 bg-black/60"></div>
-
-    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-transparent"></div>
+    <div class="absolute inset-0 bg-black/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent"></div>
 
     <div class="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8">
       <div class="max-w-2xl">
 
-        <span class="mb-5 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]" >
+        <span class="mb-5 inline-block rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--primary)] backdrop-blur-md">
           {t.sectors.badge}
         </span>
 
-        <h1 class="mb-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.05em] text-white">
+        <h1 class="mb-6 text-4xl font-bold leading-[0.95] tracking-[-0.05em] text-white md:text-6xl lg:text-7xl">
           {t.sectors.title}
         </h1>
 
-        <p class="max-w-xl text-lg leading-8 text-white/65">
+        <p class="max-w-xl text-lg leading-8 text-white/70">
           {t.sectors.description}
         </p>
 
@@ -71,28 +66,32 @@ const sectors = [
   </div>
 
   <!-- Sectores -->
-  <div class="relative px-5 md:px-8 py-28">
+  <div class="relative px-5 py-28 md:px-8">
 
-    <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
+    <div class="pointer-events-none absolute right-[-180px] top-20 h-[420px] w-[420px] rounded-full bg-[var(--primary)]/10 blur-3xl"></div>
+
+    <div class="relative mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
 
       {
         sectors.map((sector) => {
           const Icon = sector.icon;
 
           return (
-            <article class="group rounded-[32px] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#12b5ea]/ hover:shadow-[0_0_50px_rgba(18,181,234,0.12)]">
+            <article class="group rounded-[32px] border border-[var(--border)] bg-[var(--surface)] p-10 shadow-[var(--shadow-soft)] backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[var(--primary)]/40">
 
-              <div class="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-[#12b5ea]/10 text-[#12b5ea]">
+              <div class="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--primary)]/10 text-[var(--primary)]">
                 <Icon size={30} strokeWidth={1.8} />
               </div>
 
-              <h2 class="mb-5 text-3xl font-semibold text-white">
+              <h2 class="mb-5 text-3xl font-semibold text-[var(--text)]">
                 {sector.title}
               </h2>
 
-              <p class="leading-8 text-white/60 [&_strong]:font-semibold [&_strong]:text-white"
+              <p
+                class="leading-8 text-[var(--muted)] [&_strong]:font-semibold [&_strong]:text-[var(--text)]"
                 set:html={sector.description}
               />
+
             </article>
           );
         })

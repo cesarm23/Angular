@@ -6,9 +6,29 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --bg: #ece7dc;
+  --surface: #f4efe6;
+  --surface-soft: rgba(244, 239, 230, 0.75);
+  --text: #161616;
+  --muted: rgba(22, 22, 22, 0.62);
+  --border: rgba(0, 0, 0, 0.08);
+  --primary: #12b5ea;
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+html.dark {
+  --bg: #0b0b0c;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-soft: rgba(11, 11, 12, 0.8);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --primary: #12b5ea;
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
 body {
-  margin: 0;
-  font-family: "Manrope", sans-serif;
-  background: #0b0b0c;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
 }

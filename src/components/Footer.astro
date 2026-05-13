@@ -4,77 +4,118 @@ import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 const { t, lang = "es" } = Astro.props;
 ---
 
-<footer class="relative overflow-hidden bg-[#07080a] px-5 md:px-8 py-20">
-  <div class="absolute bottom-[-180px] left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#12b5ea]/10 blur-3xl"></div>
+<footer class="relative overflow-hidden bg-[var(--bg)] px-5 py-20 text-[var(--text)] transition-colors duration-500 md:px-8">
+
+  <!-- Glow -->
+  <div class="pointer-events-none absolute bottom-[-180px] left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[var(--primary)]/10 blur-3xl"></div>
 
   <div class="relative mx-auto max-w-7xl">
-    <div class="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-3">
-      
-      <div>
-        <img src="/images/Logo.png" alt="ATS Logo" class="mb-6 h-14 w-auto" />
 
-        <p class="max-w-sm leading-7 text-white/55">
+    <!-- Top -->
+    <div class="grid gap-14 border-b border-[var(--border)] pb-14 md:grid-cols-[1.4fr_1fr_1fr]">
+
+      <!-- Brand -->
+      <div class="flex flex-col items-center text-center md:items-start md:text-left">
+
+        <img
+          src="/images/Logo.png"
+          alt="ATS Logo"
+          class="mb-6 h-14 w-auto"
+        />
+
+        <p class="max-w-sm leading-7 text-[var(--muted)]">
           {t.footer.description}
         </p>
+
       </div>
 
-      <div>
-        <h3 class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+      <!-- Navigation -->
+      <div class="text-center md:text-left">
+
+        <h3 class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text)]/80">
           {t.footer.navigationTitle}
         </h3>
 
         <div class="flex flex-col gap-3">
-          
-          <a href={`/${lang}#hero`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.home}</a>
-          <a href={`/${lang}/about`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.about}</a>
-          <a href={`/${lang}#services`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.services}</a>
-          <a href={`/${lang}/sectores`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.sectors}</a>
-          <a href={`/${lang}#information`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.contact}</a>
+
+          <a href={`/${lang}#hero`} class="text-[var(--muted)] transition hover:text-[var(--primary)]">
+            {t.footer.navigation.home}
+          </a>
+
+          <a href={`/${lang}/about`} class="text-[var(--muted)] transition hover:text-[var(--primary)]">
+            {t.footer.navigation.about}
+          </a>
+
+          <a href={`/${lang}#services`} class="text-[var(--muted)] transition hover:text-[var(--primary)]">
+            {t.footer.navigation.services}
+          </a>
+
+          <a href={`/${lang}/sectores`} class="text-[var(--muted)] transition hover:text-[var(--primary)]">
+            {t.footer.navigation.sectors}
+          </a>
+
+          <a href={`/${lang}#information`} class="text-[var(--muted)] transition hover:text-[var(--primary)]">
+            {t.footer.navigation.contact}
+          </a>
+
         </div>
+
       </div>
 
-      <div>
-        <h3 class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+      <!-- Contact -->
+      <div class="text-center md:text-left">
+
+        <h3 class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text)]/80">
           {t.footer.contactTitle}
         </h3>
 
         <div class="space-y-4">
-          <a href="tel:+50624375750" class="flex items-center gap-3 text-white/55 transition hover:text-[#12b5ea]">
+
+          <a href="tel:+50624375750" class="flex items-center justify-center gap-3 text-[var(--muted)] transition hover:text-[var(--primary)] md:justify-start">
             <Phone size={18} />
             +506 2437 5750
           </a>
 
-          <a href="tel:+50670717800" class="flex items-center gap-3 text-white/55 transition hover:text-[#12b5ea]">
+          <a href="tel:+50670717800" class="flex items-center justify-center gap-3 text-[var(--muted)] transition hover:text-[var(--primary)] md:justify-start">
             <Phone size={18} />
             +506 7071 7800
           </a>
 
-          <a href="mailto:sales@angular-tech.com" class="flex items-center gap-3 text-white/55 transition hover:text-[#12b5ea]">
+          <a href="mailto:sales@angular-tech.com" class="flex items-center justify-center gap-3 text-[var(--muted)] transition hover:text-[var(--primary)] md:justify-start">
             <Mail size={18} />
             sales@angular-tech.com
           </a>
 
-          <p class="flex items-center gap-3 text-white/55">
+          <p class="flex items-center justify-center gap-3 text-[var(--muted)] md:justify-start">
             <MapPin size={18} />
             {t.footer.location}
           </p>
+
         </div>
+
       </div>
 
     </div>
 
+    <!-- Bottom -->
     <div class="flex flex-col items-center justify-between gap-6 pt-8 md:flex-row">
-      <p class="text-sm text-white/40">
+
+      <p class="text-center text-sm text-[var(--muted)] md:text-left">
         {t.footer.copyright}
       </p>
 
       <a
         href={`/${lang}#hero`}
-        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/70 transition hover:border-[#12b5ea]/40 hover:bg-[#12b5ea]/10 hover:text-white"
+        class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-5 py-3 text-sm text-[var(--text)] transition hover:border-[var(--primary)]/40 hover:bg-[var(--primary)]/10"
       >
         {t.footer.backToTop}
+
         <ArrowUpRight size={16} />
+
       </a>
+
     </div>
+
   </div>
+
 </footer>

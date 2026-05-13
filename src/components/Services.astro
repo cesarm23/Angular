@@ -46,23 +46,28 @@ const services = [
 
 <section
   id="services"
-  class="relative overflow-hidden bg-[#0b0b0c] px-5 md:px-8 py-32 pt-44"
+  class="relative overflow-hidden bg-[var(--bg)] px-5 py-32 pt-50 transition-colors duration-500 md:px-8"
 >
+
+  <!-- Glow -->
+  <div class="pointer-events-none absolute left-[-200px] top-[-200px] h-[500px] w-[500px] rounded-full bg-[var(--primary)]/10 blur-3xl"></div>
+
+  <div class="pointer-events-none absolute bottom-[-250px] right-[-250px] h-[500px] w-[500px] rounded-full bg-[var(--primary)]/10 blur-3xl"></div>
 
   <div class="mx-auto max-w-7xl">
 
     <!-- Header -->
     <div class="mb-20 text-center">
 
-      <span class="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/60 backdrop-blur-md">
+      <span class="mb-4 inline-block rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--muted)] shadow-[var(--shadow-soft)] backdrop-blur-md">
         {t.services.badge}
       </span>
 
-      <h2 class="mx-auto mb-6 max-w-3xl text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-[-0.04em] text-white">
+      <h2 class="mx-auto mb-6 max-w-3xl text-4xl font-bold leading-tight tracking-[-0.04em] text-[var(--text)] md:text-6xl lg:text-7xl">
         {t.services.title}
       </h2>
 
-      <p class="mx-auto max-w-2xl text-lg leading-8 text-white/60">
+      <p class="mx-auto max-w-2xl text-lg leading-8 text-[var(--muted)]">
         {t.services.description}
       </p>
 
@@ -76,25 +81,36 @@ const services = [
           const Icon = service.icon;
 
           return (
-            <article class="group rounded-[32px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#12b5ea]/40 hover:bg-white/[0.05]" >
+            <article
+              class="group rounded-[32px] border border-[var(--border)] bg-[var(--surface)] p-8 shadow-[var(--shadow-soft)] backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[var(--primary)]/40 hover:bg-[var(--surface)]"
+            >
 
-              <div class="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white">
+              <!-- Icon -->
+              <div class="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--surface-soft)] text-[var(--text)] transition duration-300 group-hover:text-[var(--primary)]">
+
                 <Icon size={30} strokeWidth={1.8} />
+
               </div>
 
-              <h3 class="mb-4 text-2xl font-semibold text-white">
+              <!-- Title -->
+              <h3 class="mb-4 text-2xl font-semibold text-[var(--text)]">
                 {service.title}
               </h3>
 
-              <p class="mb-8 leading-7 text-white/60">
+              <!-- Description -->
+              <p class="mb-8 leading-7 text-[var(--muted)]">
                 {service.description}
               </p>
 
-              <a href={`/${lang}/services/${service.slug}`} class="inline-flex items-center gap-2 text-sm font-medium text-[#12b5ea] transition hover:text-white" >
+              <!-- Link -->
+              <a
+                href={`/${lang}/services/${service.slug}`}
+                class="inline-flex items-center gap-2 text-sm font-medium text-[var(--primary)] transition hover:gap-3 hover:opacity-80"
+              >
                 {t.services.readMore}
-                <ArrowUpRight
-                  size={16}
-                />
+
+                <ArrowUpRight size={16} />
+
               </a>
 
             </article>
