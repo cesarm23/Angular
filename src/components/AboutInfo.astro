@@ -1,0 +1,101 @@
+---
+import MainLayout from "../Layout/MainLayout.astro";
+import { CheckCircle2, Globe2, ShieldCheck, Workflow, Users } from "lucide-react";
+
+const reasons = [
+  {
+    number: "01",
+    icon: Globe2,
+    title: "Experiencia regional",
+    text: "Hemos liderado proyectos tecnológicos de gran escala en 7 países, incluyendo implementaciones de Oracle ERP, CX, OTM y OWMS.",
+  },
+  {
+    number: "02",
+    icon: Workflow,
+    title: "Soluciones integrales",
+    text: "Diseñamos soluciones de transformación digital adaptadas a las necesidades específicas de cada cliente.",
+  },
+  {
+    number: "03",
+    icon: CheckCircle2,
+    title: "Metodologías ágiles",
+    text: "Aplicamos metodologías ágiles y estándares internacionales para garantizar eficiencia, seguridad y cumplimiento normativo.",
+  },
+  {
+    number: "04",
+    icon: ShieldCheck,
+    title: "Operación segura",
+    text: "Contamos con experiencia gestionando ambientes, servidores, firewalls, redes y protección avanzada para clientes regionales.",
+  },
+  {
+    number: "05",
+    icon: Users,
+    title: "Equipo especializado",
+    text: "Nuestro equipo técnico combina experiencia, colaboración y orientación a la excelencia para entregar soluciones confiables.",
+  },
+];
+---
+
+  <section class="relative overflow-hidden bg-[#0b0b0c]" id="about">
+    <div class="relative h-[460px] overflow-hidden">
+      <img
+        src="/images/about.jpg"
+        alt="Sobre ATS"
+        class="h-full w-full object-cover"
+      />
+
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+
+      <div class="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8 pt-24">
+        <div class="max-w-3xl">
+          <span class="mb-5 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]">
+            Sobre nosotros
+          </span>
+
+          <h1 class="mb-6  font-bold leading-[0.95] tracking-[-0.05em] text-white text-4xl md:text-6xl lg:text-7xl">
+            ¿Por qué elegir Angular Technology Solutions?
+          </h1>
+
+          <p class="max-w-2xl text-lg leading-8 text-white/65">
+            Combinamos experiencia técnica, metodologías ágiles y visión empresarial
+            para desarrollar soluciones tecnológicas confiables, escalables y seguras.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative px-5 md:px-8 py-28">
+      <div class="absolute left-[-180px] top-20 h-[420px] w-[420px] rounded-full bg-[#12b5ea]/10 blur-3xl"></div>
+
+      <div class="relative mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
+        {
+          reasons.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <article class="group rounded-[32px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#12b5ea]/40 hover:shadow-[0_0_50px_rgba(18,181,234,0.12)]">
+                <div class="mb-8 flex items-center justify-between">
+                  <span class="text-sm font-semibold tracking-[0.25em] text-[#12b5ea]">
+                    {item.number}
+                  </span>
+
+                  <span class="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#12b5ea]/10 text-[#12b5ea]">
+                    <Icon size={26} strokeWidth={1.8} />
+                  </span>
+                </div>
+
+                <h2 class="mb-4 text-2xl font-semibold text-white">
+                  {item.title}
+                </h2>
+
+                <p class="leading-8 text-white/60">
+                  {item.text}
+                </p>
+              </article>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>

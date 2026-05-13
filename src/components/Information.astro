@@ -1,0 +1,87 @@
+---
+import { ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
+---
+
+<section
+  id="information"
+  class="relative overflow-hidden bg-[#0b0b0c] px-5 md:px-8 py-28"
+>
+  <div class="absolute right-[-180px] top-[-180px] h-[420px] w-[420px] rounded-full bg-[#12b5ea]/10 blur-3xl"></div>
+
+  <div
+    class="relative mx-auto grid max-w-7xl gap-10 rounded-[40px] border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35),0_0_50px_rgba(18,181,234,0.10)] backdrop-blur-xl md:grid-cols-2 md:p-14"
+  >
+    <div>
+      <span class="mb-5 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]">
+        Contacto
+      </span>
+
+      <h2 class="mb-6 text-4xl font-bold tracking-[-0.04em] text-white md:text-6xl lg:text-7xl">
+        ¿Desea más información?
+      </h2>
+
+      <p class="max-w-xl text-lg leading-8 text-white/60">
+        Conversemos sobre cómo podemos ayudarle a impulsar la transformación tecnológica de su empresa.
+      </p>
+    </div>
+
+    <div class="flex flex-col justify-center gap-5">
+      <a
+        href="tel:+50624375750"
+        class="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-[#12b5ea]/40 hover:bg-[#12b5ea]/10"
+      >
+        <span class="flex items-center gap-4">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#12b5ea]/10 text-[#12b5ea]">
+            <Phone size={20} />
+          </span>
+          <span>
+            <span class="block text-sm text-white/50">Teléfono</span>
+            <span class="font-medium">+506 2437 5750</span>
+          </span>
+        </span>
+        <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+      </a>
+
+      <a
+        href="https://wa.me/50670717800"
+        target="_blank"
+        class="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-[#12b5ea]/40 hover:bg-[#12b5ea]/10"
+      >
+        <span class="flex items-center gap-4">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#12b5ea]/10 text-[#12b5ea]">
+            <MessageCircle size={20} />
+          </span>
+          <span>
+            <span class="block text-sm text-white/50">WhatsApp</span>
+            <span class="font-medium">+506 7071 7800</span>
+          </span>
+        </span>
+        <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+      </a>
+
+      <a
+        href="mailto:sales@angular-tech.com"
+        class="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-[#12b5ea]/40 hover:bg-[#12b5ea]/10"
+      >
+        <span class="flex items-center gap-4">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#12b5ea]/10 text-[#12b5ea]">
+            <Mail size={20} />
+          </span>
+          <span>
+            <span class="block text-sm text-white/50">Correo</span>
+            <span class="font-medium">sales@angular-tech.com</span>
+          </span>
+        </span>
+        <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+      </a>
+
+      <a
+        href="/contact"
+        class="mt-4 inline-flex w-fit items-center gap-3 rounded-full bg-[#12b5ea] px-5 md:px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35),0_0_40px_rgba(18,181,234,0.12)] transition hover:-translate-y-1 hover:bg-[#1b75bb]"
+      >
+        Evaluación gratuita
+        <ArrowRight size={16} />
+      </a>
+    </div>
+  </div>
+</section>

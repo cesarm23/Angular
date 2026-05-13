@@ -1,0 +1,113 @@
+---
+import {
+  Truck,
+  Store,
+  Landmark,
+  Boxes,
+  ArrowUpRight
+} from "lucide-react";
+
+const sectors = [
+  {
+    title: "Logística y Almacenes",
+    icon: Boxes,
+    description:
+      `En <strong>Angular Technology Solutions</strong> contamos con una sólida trayectoria en el desarrollo de soluciones tecnológicas para el sector logístico. Nuestra experiencia incluye sistemas especializados para la gestión de almacenes (WMS), control de transporte, procesos de tramitología aduanal y agencias de carga internacional.Diseñamos e implementamos plataformas que optimizan cada etapa de la cadena logística, mejorando la eficiencia operativa, la trazabilidad y la toma de decisiones en tiempo real.`,
+  },
+  {
+    title: "Financiero Contable",
+    icon: Landmark,
+    description:
+      `En <strong>Angular Technology Solutions</strong> contamos con amplia experiencia en la implementación de soluciones tecnológicas para procesos financieros y contables. Hemos desarrollado e integrado sistemas ERP y plataformas CX que optimizan la gestión empresarial, desde la planificación hasta la atención al cliente. Nos especializamos en el desarrollo del ciclo completo Order to Cash, asegurando eficiencia, trazabilidad y control en cada etapa del proceso. Nuestras soluciones permiten a las empresas tomar decisiones estratégicas basadas en información confiable y en tiempo real.`,
+  },
+  {
+    title: "Sector Retail",
+    icon: Store,
+    description:
+      `En <strong>Angular Technology Solutions</strong> desarrollamos soluciones tecnológicas que impulsan la eficiencia y el control en operaciones comerciales. Contamos con amplia experiencia en la implementación de sistemas para puntos de venta (POS), gestión de inventarios y facturación electrónica, adaptados a las necesidades del entorno retail. Nuestras plataformas permiten una administración ágil, segura y centralizada, mejorando la experiencia del cliente y facilitando la toma de decisiones basada en datos en tiempo real`,
+  },
+  {
+    title: "Sector Transporte",
+    icon: Truck,
+    description:
+      `En <strong>Angular Technology Solutions</strong> contamos con amplia experiencia en el desarrollo e implementación de soluciones tecnológicas para el sector transporte. Hemos realizado exitosas implementaciones de Oracle Transportation Management (OTM), así como desarrollos a la medida que responden a los desafíos específicos de la industria. Nuestras soluciones permiten optimizar la planificación, ejecución y seguimiento de operaciones logísticas, mejorando la eficiencia, la trazabilidad y el control en cada etapa del proceso de transporte.`,
+  },
+];
+---
+
+<section class="relative overflow-hidden bg-[#0b0b0c]">
+
+  <!-- Hero -->
+  <div class="relative h-[420px] overflow-hidden">
+
+    <img
+      src="/images/sectores.jpg"
+      alt="Sectores ATS"
+      class="h-full w-full object-cover"
+    />
+
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+
+    <div
+      class="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8"
+    >
+      <div class="max-w-2xl">
+
+        <span
+          class="mb-5 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]"
+        >
+          Sectores empresariales
+        </span>
+
+        <h1
+          class="mb-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.05em] text-white"
+        >
+          Soluciones IT adaptadas a cada industria
+        </h1>
+
+        <p
+          class="max-w-xl text-lg leading-8 text-white/65"
+        >
+          Desarrollamos plataformas tecnológicas especializadas
+          para logística, retail, finanzas y transporte.
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Sectores -->
+  <div class="relative px-5 md:px-8 py-28">
+
+    <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
+
+      {
+        sectors.map((sector) => {
+          const Icon = sector.icon;
+
+          return (
+            <article class="group rounded-[32px] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#12b5ea]/ hover:shadow-[0_0_50px_rgba(18,181,234,0.12)]">
+
+              <div class="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-[#12b5ea]/10 text-[#12b5ea]">
+                <Icon size={30} strokeWidth={1.8} />
+              </div>
+
+              <h2 class="mb-5 text-3xl font-semibold text-white">
+                {sector.title}
+              </h2>
+
+              <p class="leading-8 text-white/60 [&_strong]:font-semibold [&_strong]:text-white"
+                set:html={sector.description}
+              />
+            </article>
+          );
+        })
+      }
+
+    </div>
+
+  </div>
+
+</section>

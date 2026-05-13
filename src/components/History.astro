@@ -1,0 +1,102 @@
+---
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const history = [
+  {
+    year: "2021",
+    title: "Año 2021",
+    description:
+      "Angular inicia operaciones como proveedor tecnológico para las 25 empresas que integran Grupo Tical Holding, con un enfoque especializado en el ámbito logístico.",
+  },
+  {
+    year: "2022",
+    title: "Año 2022",
+    description:
+      "Ejecutamos con éxito el proyecto de implementación Oracle Transportation Management para Transportes Internacionales Tical, con el objetivo de automatizar y optimizar los procesos logísticos relacionados con la gestión del transporte. Este proyecto, ejecutado en el transcurso de un año, se desplegó exitosamente en Panamá, Costa Rica, Nicaragua, El Salvador, Guatemala, Honduras y México.",
+  },
+  {
+    year: "2023 y 2024",
+    title: "Años 2023 y 2024",
+    description:
+      "Llevamos a cabo la implementación de Oracle CX y Oracle ERP para todas las empresas del Grupo, abarcando el rediseño del proceso Order to Cash y la gestión integrada de los servicios de transporte, agenciamiento aduanal, agenciamiento de carga internacional, almacenamiento, distribución y, en general, de todos los procesos comerciales y financieros del Grupo. El go live, realizado en enero de 2025, fue altamente exitoso.",
+  },
+  {
+    year: "Año 2025",
+    title: "Año 2025",
+    description: "Angular se enfocó en estabilizar las herramientas de la suite de Oracle, brindando soporte a las distintas áreas y empresas del Grupo. Ese mismo año, se emprendió el rediseño del proyecto de Factura Electrónica versión 4.4 para Costa Rica, alcanzando un 99.99% de acierto en la generación electrónica de facturas. Simultáneamente, Angular apoyó en proyectos OWMS e integraciones con clientes como Reckitt Benckiser, Clínica Bíblica y Mondelēz."
+  },
+  {
+    year: "Año 2026",
+    title: "Año 2026",
+    description: "Proyectamos un crecimiento sostenido en la ejecución de grandes proyectos para nuestros clientes."
+  }  
+];
+---
+<section class="relative overflow-hidden bg-[#08090b] px-4 py-24 md:px-8 md:py-32" id="history">
+  <div class="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#12b5ea]/10 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl">
+    <div class="mb-16 text-center">
+      <span class="mb-4 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]">
+        Nuestra historia
+      </span>
+
+      <h2 class="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl"></h2>
+        Evolución y crecimiento tecnológico
+      </h2>
+    </div>
+
+    <div class="relative">
+      <button
+        id="history-prev"
+        class="hidden md:flex absolute -left-5 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-xl transition hover:bg-[#12b5ea]"
+      >
+        <ChevronLeft size={22} />
+      </button>
+
+      <div
+        id="history-slider"
+        class="flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {
+          history.map((item) => (
+            <article class="min-w-[85vw] snap-start rounded-[28px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#12b5ea]/40 hover:shadow-[0_0_50px_rgba(18,181,234,0.12)] sm:min-w-[360px] md:min-w-[430px] md:p-8">
+              <span class="mb-4 inline-block text-sm font-semibold tracking-[0.2em] text-[#12b5ea]">
+                {item.year}
+              </span>
+
+              <h3 class="mb-5 text-2xl font-semibold text-white">
+                {item.title}
+              </h3>
+
+              <p class="leading-8 text-white/60">
+                {item.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <button
+        id="history-next"
+        class="hidden md:flex absolute -right-5 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-xl transition hover:bg-[#12b5ea]"
+      >
+        <ChevronRight size={22} />
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slider = document.getElementById("history-slider");
+  const prev = document.getElementById("history-prev");
+  const next = document.getElementById("history-next");
+
+  prev?.addEventListener("click", () => {
+    slider?.scrollBy({ left: -460, behavior: "smooth" });
+  });
+
+  next?.addEventListener("click", () => {
+    slider?.scrollBy({ left: 460, behavior: "smooth" });
+  });
+</script>
