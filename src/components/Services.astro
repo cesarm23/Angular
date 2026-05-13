@@ -90,7 +90,7 @@ const services = [
                 {service.description}
               </p>
 
-              <a href={`/services/${service.slug}?lang=${lang}`} class="inline-flex items-center gap-2 text-sm font-medium text-[#12b5ea] transition hover:text-white" >
+              <a href={`/${lang}/services/${service.slug}`} class="inline-flex items-center gap-2 text-sm font-medium text-[#12b5ea] transition hover:text-white" >
                 {t.services.readMore}
                 <ArrowUpRight
                   size={16}

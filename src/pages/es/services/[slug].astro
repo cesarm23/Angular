@@ -1,17 +1,12 @@
 ---
-import MainLayout from "../../Layout/MainLayout.astro";
+import MainLayout from "../../../Layout/MainLayout.astro";
 import { ArrowLeft, Code2, Wrench } from "lucide-react";
-import { services } from "../../data/services";
-import { translations } from "../../i18n/translation";
-
-export const prerender = false;
+import { services } from "../../../data/services.es";
+import { translations } from "../../../i18n/translation";
 
 type Lang = "es" | "en";
 
-const urlLang = Astro.url.searchParams.get("lang");
-
-const lang: Lang = urlLang === "en" ? "en" : "es";
-
+const lang: Lang = "es";
 const t = translations[lang];
 
 export async function getStaticPaths() {
@@ -32,7 +27,7 @@ const Icon = service.icon ?? Code2;
 
     <div class="relative mx-auto max-w-5xl">
       <a
-        href={`/?lang=${lang}#services`}
+        href={`/${lang}/#services`}
         class="mb-10 inline-flex items-center gap-2 text-sm text-white/60 transition hover:text-[#12b5ea]"
       >
         <ArrowLeft size={16} />

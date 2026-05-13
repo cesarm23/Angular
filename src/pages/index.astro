@@ -1,29 +1,5 @@
 ---
-import "../styles/global.css";
-import Hero from "../components/Hero.astro";
-import MainLayout from "../Layout/MainLayout.astro";
-import Services from "../components/Services.astro";
-import History from "../components/History.astro";
-import Information from "../components/Information.astro";
-import { translations } from "../i18n/translation";
 
-export const prerender = false;
+return Astro.redirect("/es");
 
-type Lang = "es" | "en";
-
-const urlLang = Astro.url.searchParams.get("lang");
-
-const lang: Lang = urlLang === "en" ? "en" : "es";
-
-const t = translations[lang];
 ---
-
-<MainLayout title="ATS" t={t} lang={lang}>
-
-
-  <Hero t={t} lang={lang}/>
-  <Services t={t} lang={lang}/>
-  <History t={t} lang={lang}/>
-  <Information t={t} lang={lang}/>
-
-</MainLayout>

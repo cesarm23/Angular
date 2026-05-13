@@ -1,0 +1,16 @@
+---
+import "../../styles/global.css";
+import MainLayout from "../../Layout/MainLayout.astro";
+import AboutInfo from "../../components/AboutInfo.astro";
+import { translations } from "../../i18n/translation";
+
+type Lang = "es" | "en";
+const lang: Lang = "en";
+const t = translations[lang];
+---
+
+<MainLayout title="Sobre Nosotros" t={t} lang={lang}>
+
+  <AboutInfo t={t} lang={lang}/>
+  
+</MainLayout>

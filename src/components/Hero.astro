@@ -49,7 +49,7 @@ const { t, lang = "es" } = Astro.props;
       <div class="flex flex-wrap gap-4">
 
         <!-- Principal -->
-        <a href={`/about?lang=${lang}`} class="inline-flex items-center gap-3 rounded-full bg-[#12b5ea] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35),0_0_40px_rgba(18,181,234,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#1b75bb]">
+        <a href={`/${lang}/about`} class="inline-flex items-center gap-3 rounded-full bg-[#12b5ea] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35),0_0_40px_rgba(18,181,234,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#1b75bb]">
           {t.hero.primaryButton}
 
           <span class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
@@ -58,7 +58,7 @@ const { t, lang = "es" } = Astro.props;
         </a>
 
         <!-- Secundario -->
-        <a href={`/?lang=${lang}#services`} class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#12b5ea]/30 hover:bg-[#12b5ea]/10">
+        <a href={`/${lang}/#services`} class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#12b5ea]/30 hover:bg-[#12b5ea]/10">
           {t.hero.secondaryButton}
         </a>
 

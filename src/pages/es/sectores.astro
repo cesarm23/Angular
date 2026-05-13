@@ -1,0 +1,16 @@
+---
+import "../../styles/global.css";
+import MainLayout from "../../Layout/MainLayout.astro";
+import SectoresInfo from "../../components/SectoresInfo.astro";
+import { translations } from "../../i18n/translation";
+
+type Lang = "es" | "en";
+const lang: Lang = "es";
+const t = translations[lang];
+---
+
+<MainLayout title="Sectores" t={t} lang={lang}>
+
+  <SectoresInfo t={t} lang={lang}/>
+  
+</MainLayout>
