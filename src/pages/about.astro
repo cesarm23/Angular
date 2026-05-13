@@ -2,11 +2,21 @@
 import "../styles/global.css";
 import MainLayout from "../Layout/MainLayout.astro";
 import AboutInfo from "../components/AboutInfo.astro";
+import { translations } from "../i18n/translation";
 
+export const prerender = false;
+
+type Lang = "es" | "en";
+
+const urlLang = Astro.url.searchParams.get("lang");
+
+const lang: Lang = urlLang === "en" ? "en" : "es";
+
+const t = translations[lang];
 ---
 
-<MainLayout title="Sobre Nosotros">
+<MainLayout title="Sobre Nosotros" t={t} lang={lang}>
 
-  <AboutInfo />
+  <AboutInfo t={t} lang={lang}/>
   
 </MainLayout>

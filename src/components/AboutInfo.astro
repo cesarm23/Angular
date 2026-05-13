@@ -1,48 +1,47 @@
 ---
-import MainLayout from "../Layout/MainLayout.astro";
 import { CheckCircle2, Globe2, ShieldCheck, Workflow, Users } from "lucide-react";
+
+import { translations } from "../i18n/translation";
+
+const { t } = Astro.props;
 
 const reasons = [
   {
     number: "01",
     icon: Globe2,
-    title: "Experiencia regional",
-    text: "Hemos liderado proyectos tecnológicos de gran escala en 7 países, incluyendo implementaciones de Oracle ERP, CX, OTM y OWMS.",
+    title: t.about.reasons[0].title,
+    text: t.about.reasons[0].text,
   },
   {
     number: "02",
     icon: Workflow,
-    title: "Soluciones integrales",
-    text: "Diseñamos soluciones de transformación digital adaptadas a las necesidades específicas de cada cliente.",
+    title: t.about.reasons[1].title,
+    text: t.about.reasons[1].text,
   },
   {
     number: "03",
     icon: CheckCircle2,
-    title: "Metodologías ágiles",
-    text: "Aplicamos metodologías ágiles y estándares internacionales para garantizar eficiencia, seguridad y cumplimiento normativo.",
+    title: t.about.reasons[2].title,
+    text: t.about.reasons[2].text,
   },
   {
     number: "04",
     icon: ShieldCheck,
-    title: "Operación segura",
-    text: "Contamos con experiencia gestionando ambientes, servidores, firewalls, redes y protección avanzada para clientes regionales.",
+    title: t.about.reasons[3].title,
+    text: t.about.reasons[3].text,
   },
   {
     number: "05",
     icon: Users,
-    title: "Equipo especializado",
-    text: "Nuestro equipo técnico combina experiencia, colaboración y orientación a la excelencia para entregar soluciones confiables.",
+    title: t.about.reasons[4].title,
+    text: t.about.reasons[4].text,
   },
 ];
 ---
 
   <section class="relative overflow-hidden bg-[#0b0b0c]" id="about">
     <div class="relative h-[460px] overflow-hidden">
-      <img
-        src="/images/about.jpg"
-        alt="Sobre ATS"
-        class="h-full w-full object-cover"
-      />
+      <img src="/images/about.jpg" alt="Sobre ATS" class="h-full w-full object-cover" />
 
       <div class="absolute inset-0 bg-black/60"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
@@ -50,16 +49,15 @@ const reasons = [
       <div class="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8 pt-24">
         <div class="max-w-3xl">
           <span class="mb-5 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]">
-            Sobre nosotros
+            {t.about.badge}
           </span>
 
           <h1 class="mb-6  font-bold leading-[0.95] tracking-[-0.05em] text-white text-4xl md:text-6xl lg:text-7xl">
-            ¿Por qué elegir Angular Technology Solutions?
+            {t.about.title}
           </h1>
 
           <p class="max-w-2xl text-lg leading-8 text-white/65">
-            Combinamos experiencia técnica, metodologías ágiles y visión empresarial
-            para desarrollar soluciones tecnológicas confiables, escalables y seguras.
+            {t.about.description}
           </p>
         </div>
       </div>

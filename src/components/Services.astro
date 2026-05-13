@@ -8,35 +8,37 @@ import {
   ArrowUpRight
 } from "lucide-react";
 
+const { t, lang = "es" } = Astro.props;
+
 const services = [
   {
-    title: "Desarrollo e Implementación",
+    title: t.services.items[0].title,
     slug: "desarrollo-software",
-    description: "Diseñamos sistemas escalables y personalizados para optimizar procesos empresariales.",
+    description: t.services.items[0].description,
     icon: MonitorCog,
   },
   {
-    title: "Soporte e Infraestructura",
+    title: t.services.items[1].title,
     slug: "soporte-infraestructura",
-    description:"Brindamos soporte continuo y gestión tecnológica para garantizar estabilidad.",
+    description: t.services.items[1].description,
     icon: Server,
   },
   {
-    title: "Redes Empresariales",
+    title: t.services.items[2].title,
     slug: "redes-empresariales",
-    description: "Configuramos redes seguras y eficientes adaptadas a cada operación.",
+    description: t.services.items[2].description,
     icon: Network,
   },
   {
-    title: "Ciberseguridad",
+    title: t.services.items[3].title,
     slug: "ciberseguridad",
-    description: "Protegemos tus activos digitales con monitoreo y estrategias avanzadas.",
+    description: t.services.items[3].description,
     icon: Shield,
   },
   {
-    title: "Gestión de Proyectos",
+    title: t.services.items[4].title,
     slug: "gestion-proyectos",
-    description:"Implementamos soluciones tecnológicas de alto impacto para empresas modernas.",
+    description: t.services.items[4].description,
     icon: Briefcase,
   },
 ];
@@ -52,23 +54,16 @@ const services = [
     <!-- Header -->
     <div class="mb-20 text-center">
 
-      <span
-        class="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/60 backdrop-blur-md"
-      >
-        Nuestros servicios
+      <span class="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/60 backdrop-blur-md">
+        {t.services.badge}
       </span>
 
-      <h2
-        class="mx-auto mb-6 max-w-3xl text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-[-0.04em] text-white"
-      >
-        Soluciones tecnológicas diseñadas para empresas modernas
+      <h2 class="mx-auto mb-6 max-w-3xl text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-[-0.04em] text-white">
+        {t.services.title}
       </h2>
 
-      <p
-        class="mx-auto max-w-2xl text-lg leading-8 text-white/60"
-      >
-        Infraestructura, desarrollo, redes y ciberseguridad con
-        un enfoque moderno, escalable y seguro.
+      <p class="mx-auto max-w-2xl text-lg leading-8 text-white/60">
+        {t.services.description}
       </p>
 
     </div>
@@ -95,8 +90,8 @@ const services = [
                 {service.description}
               </p>
 
-              <a href={`/services/${service.slug}`} class="inline-flex items-center gap-2 text-sm font-medium text-[#12b5ea] transition hover:text-white" >
-                Leer más
+              <a href={`/services/${service.slug}?lang=${lang}`} class="inline-flex items-center gap-2 text-sm font-medium text-[#12b5ea] transition hover:text-white" >
+                {t.services.readMore}
                 <ArrowUpRight
                   size={16}
                 />

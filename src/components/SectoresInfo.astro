@@ -7,30 +7,32 @@ import {
   ArrowUpRight
 } from "lucide-react";
 
+const { t } = Astro.props;
+
 const sectors = [
   {
-    title: "Logística y Almacenes",
+    title: t.sectors.items[0].title,
     icon: Boxes,
     description:
-      `En <strong>Angular Technology Solutions</strong> contamos con una sólida trayectoria en el desarrollo de soluciones tecnológicas para el sector logístico. Nuestra experiencia incluye sistemas especializados para la gestión de almacenes (WMS), control de transporte, procesos de tramitología aduanal y agencias de carga internacional.Diseñamos e implementamos plataformas que optimizan cada etapa de la cadena logística, mejorando la eficiencia operativa, la trazabilidad y la toma de decisiones en tiempo real.`,
+      t.sectors.items[0].description,
   },
   {
-    title: "Financiero Contable",
+    title: t.sectors.items[1].title,
     icon: Landmark,
     description:
-      `En <strong>Angular Technology Solutions</strong> contamos con amplia experiencia en la implementación de soluciones tecnológicas para procesos financieros y contables. Hemos desarrollado e integrado sistemas ERP y plataformas CX que optimizan la gestión empresarial, desde la planificación hasta la atención al cliente. Nos especializamos en el desarrollo del ciclo completo Order to Cash, asegurando eficiencia, trazabilidad y control en cada etapa del proceso. Nuestras soluciones permiten a las empresas tomar decisiones estratégicas basadas en información confiable y en tiempo real.`,
+      t.sectors.items[1].description,
   },
   {
-    title: "Sector Retail",
+    title: t.sectors.items[2].title,
     icon: Store,
     description:
-      `En <strong>Angular Technology Solutions</strong> desarrollamos soluciones tecnológicas que impulsan la eficiencia y el control en operaciones comerciales. Contamos con amplia experiencia en la implementación de sistemas para puntos de venta (POS), gestión de inventarios y facturación electrónica, adaptados a las necesidades del entorno retail. Nuestras plataformas permiten una administración ágil, segura y centralizada, mejorando la experiencia del cliente y facilitando la toma de decisiones basada en datos en tiempo real`,
+      t.sectors.items[2].description,
   },
   {
-    title: "Sector Transporte",
+    title: t.sectors.items[3].title,
     icon: Truck,
     description:
-      `En <strong>Angular Technology Solutions</strong> contamos con amplia experiencia en el desarrollo e implementación de soluciones tecnológicas para el sector transporte. Hemos realizado exitosas implementaciones de Oracle Transportation Management (OTM), así como desarrollos a la medida que responden a los desafíos específicos de la industria. Nuestras soluciones permiten optimizar la planificación, ejecución y seguimiento de operaciones logísticas, mejorando la eficiencia, la trazabilidad y el control en cada etapa del proceso de transporte.`,
+      t.sectors.items[3].description,
   },
 ];
 ---
@@ -50,28 +52,19 @@ const sectors = [
 
     <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
 
-    <div
-      class="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8"
-    >
+    <div class="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8">
       <div class="max-w-2xl">
 
-        <span
-          class="mb-5 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]"
-        >
-          Sectores empresariales
+        <span class="mb-5 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]" >
+          {t.sectors.badge}
         </span>
 
-        <h1
-          class="mb-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.05em] text-white"
-        >
-          Soluciones IT adaptadas a cada industria
+        <h1 class="mb-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.05em] text-white">
+          {t.sectors.title}
         </h1>
 
-        <p
-          class="max-w-xl text-lg leading-8 text-white/65"
-        >
-          Desarrollamos plataformas tecnológicas especializadas
-          para logística, retail, finanzas y transporte.
+        <p class="max-w-xl text-lg leading-8 text-white/65">
+          {t.sectors.description}
         </p>
 
       </div>

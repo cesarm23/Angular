@@ -1,5 +1,7 @@
 ---
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+
+const { t, lang = "es" } = Astro.props;
 ---
 
 <footer class="relative overflow-hidden bg-[#07080a] px-5 md:px-8 py-20">
@@ -12,28 +14,28 @@ import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
         <img src="/images/Logo.png" alt="ATS Logo" class="mb-6 h-14 w-auto" />
 
         <p class="max-w-sm leading-7 text-white/55">
-          Soluciones tecnológicas modernas para empresas que buscan eficiencia,
-          seguridad y crecimiento.
+          {t.footer.description}
         </p>
       </div>
 
       <div>
         <h3 class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
-          Navegación
+          {t.footer.navigationTitle}
         </h3>
 
         <div class="flex flex-col gap-3">
-          <a href="/#hero" class="text-white/55 transition hover:text-[#12b5ea]">Inicio</a>
-          <a href="/#About" class="text-white/55 transition hover:text-[#12b5ea]">Sobre Nosotros</a>
-          <a href="/#services" class="text-white/55 transition hover:text-[#12b5ea]">Servicios</a>
-          <a href="/sectores" class="text-white/55 transition hover:text-[#12b5ea]">Sectores</a>
-          <a href="/#information" class="text-white/55 transition hover:text-[#12b5ea]">Contacto</a>
+          
+          <a href={`/?lang=${lang}#hero`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.home}</a>
+          <a href={`/about?lang=${lang}`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.about}</a>
+          <a href={`/?lang=${lang}#services`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.services}</a>
+          <a href={`/sectores?lang=${lang}`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.sectors}</a>
+          <a href={`/?lang=${lang}#information`} class="text-white/55 transition hover:text-[#12b5ea]">{t.footer.navigation.contact}</a>
         </div>
       </div>
 
       <div>
         <h3 class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
-          Contacto
+          {t.footer.contactTitle}
         </h3>
 
         <div class="space-y-4">
@@ -54,7 +56,7 @@ import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
           <p class="flex items-center gap-3 text-white/55">
             <MapPin size={18} />
-            Alajuela, Costa Rica
+            {t.footer.location}
           </p>
         </div>
       </div>
@@ -63,14 +65,14 @@ import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
     <div class="flex flex-col items-center justify-between gap-6 pt-8 md:flex-row">
       <p class="text-sm text-white/40">
-        © 2026 Creado por Angular Technology Solutions
+        {t.footer.copyright}
       </p>
 
       <a
-        href="#hero"
+        href={`/?lang=${lang}#hero`}
         class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/70 transition hover:border-[#12b5ea]/40 hover:bg-[#12b5ea]/10 hover:text-white"
       >
-        Volver arriba
+        {t.footer.backToTop}
         <ArrowUpRight size={16} />
       </a>
     </div>

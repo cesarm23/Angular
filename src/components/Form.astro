@@ -1,5 +1,7 @@
 ---
 import { ArrowLeft, Send, Mail } from "lucide-react";
+
+const { t, lang = "es" } = Astro.props;
 ---
 
 <section class="relative min-h-screen overflow-hidden bg-[#0b0b0c] px-5 py-10 text-white mt-16">
@@ -13,44 +15,41 @@ import { ArrowLeft, Send, Mail } from "lucide-react";
       
       <div class="flex flex-col justify-between">
         <div>
-          <a href="/" class="relative z-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/70 backdrop-blur-md transition hover:border-[#12b5ea]/40 hover:bg-[#12b5ea]/10 hover:text-white" >
+          <a href={`/?lang=${lang}`} class="relative z-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/70 backdrop-blur-md transition hover:border-[#12b5ea]/40 hover:bg-[#12b5ea]/10 hover:text-white" >
             <ArrowLeft size={16} />
-            Volver
+            {t.evaluation.back}
           </a>
 
           <span class="mb-5 inline-flex items-center gap-2 rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]">
             <Mail size={16} />
-            Evaluación gratuita
+            {t.evaluation.badge}
           </span>
 
           <h1 class="mb-6 text-4xl font-bold leading-tight tracking-[-0.04em] md:text-5xl">
-            Queremos ayudarle
+            {t.evaluation.title}
           </h1>
 
           <p class="max-w-md leading-8 text-white/60">
-            Complete el formulario y nos pondremos en contacto para conocer sus necesidades y proponerle una solución tecnológica adecuada.
+            {t.evaluation.description}
           </p>
         </div>
       </div>
 
       <form class="grid gap-5">
         <div class="grid gap-5 md:grid-cols-2">
-          <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="text" placeholder="Nombre *" required />
-          <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="text" placeholder="Apellido *" required />
+          <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="text" placeholder={t.evaluation.form.firstName} required />
+          <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="text" placeholder={t.evaluation.form.lastName} required />
         </div>
 
-        <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="email" placeholder="Email *" required />
-        <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="text" placeholder="Asunto *" />
-        <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="tel" placeholder="Teléfono *" />
-        <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="text" placeholder="Dirección *" />
+        <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="email" placeholder={t.evaluation.form.email} required />
+        <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="text" placeholder={t.evaluation.form.subject} />
+        <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="tel" placeholder={t.evaluation.form.phone} />
+        <input class="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" type="text" placeholder={t.evaluation.form.address} />
 
-        <textarea class="min-h-36 w-full resize-none rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" placeholder="Mensaje *"></textarea>
+        <textarea class="min-h-36 w-full resize-none rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-[#12b5ea]/50 focus:bg-white/[0.06]" placeholder={t.evaluation.form.message} required></textarea>
 
-        <button
-          type="submit"
-          class="inline-flex items-center justify-center gap-3 rounded-full bg-[#12b5ea] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35),0_0_40px_rgba(18,181,234,0.12)] transition hover:-translate-y-1 hover:bg-[#1b75bb]"
-        >
-          Enviar solicitud
+        <button type="submit" class="inline-flex items-center justify-center gap-3 rounded-full bg-[#12b5ea] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35),0_0_40px_rgba(18,181,234,0.12)] transition hover:-translate-y-1 hover:bg-[#1b75bb]">
+          {t.evaluation.form.submit}
           <Send size={16} />
         </button>
       </form>

@@ -1,5 +1,7 @@
 ---
 import { ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
+
+const { t, lang = "es" } = Astro.props;
 ---
 
 <section
@@ -13,15 +15,15 @@ import { ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
   >
     <div>
       <span class="mb-5 inline-block rounded-full border border-[#12b5ea]/20 bg-[#12b5ea]/10 px-4 py-2 text-sm text-[#8edfff]">
-        Contacto
+        {t.information.badge}
       </span>
 
       <h2 class="mb-6 text-4xl font-bold tracking-[-0.04em] text-white md:text-6xl lg:text-7xl">
-        ¿Desea más información?
+        {t.information.title}
       </h2>
 
       <p class="max-w-xl text-lg leading-8 text-white/60">
-        Conversemos sobre cómo podemos ayudarle a impulsar la transformación tecnológica de su empresa.
+        {t.information.description}
       </p>
     </div>
 
@@ -35,7 +37,7 @@ import { ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
             <Phone size={20} />
           </span>
           <span>
-            <span class="block text-sm text-white/50">Teléfono</span>
+            <span class="block text-sm text-white/50">{t.information.phoneLabel}</span>
             <span class="font-medium">+506 2437 5750</span>
           </span>
         </span>
@@ -52,7 +54,7 @@ import { ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
             <MessageCircle size={20} />
           </span>
           <span>
-            <span class="block text-sm text-white/50">WhatsApp</span>
+            <span class="block text-sm text-white/50">{t.information.whatsappLabel}</span>
             <span class="font-medium">+506 7071 7800</span>
           </span>
         </span>
@@ -68,7 +70,7 @@ import { ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
             <Mail size={20} />
           </span>
           <span>
-            <span class="block text-sm text-white/50">Correo</span>
+            <span class="block text-sm text-white/50">{t.information.emailLabel}</span>
             <span class="font-medium">sales@angular-tech.com</span>
           </span>
         </span>
@@ -76,10 +78,10 @@ import { ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
       </a>
 
       <a
-        href="/contact"
+        href={`/contact?lang=${lang}`}
         class="mt-4 inline-flex w-fit items-center gap-3 rounded-full bg-[#12b5ea] px-5 md:px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35),0_0_40px_rgba(18,181,234,0.12)] transition hover:-translate-y-1 hover:bg-[#1b75bb]"
       >
-        Evaluación gratuita
+        {t.information.freeEvaluation}
         <ArrowRight size={16} />
       </a>
     </div>

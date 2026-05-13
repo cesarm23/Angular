@@ -4,10 +4,21 @@ import MainLayout from "../Layout/MainLayout.astro";
 import Header from "../components/Header.astro";
 import SectoresInfo from "../components/SectoresInfo.astro";
 import Footer from "../components/Footer.astro";
+import { translations } from "../i18n/translation";
+
+export const prerender = false;
+
+type Lang = "es" | "en";
+
+const urlLang = Astro.url.searchParams.get("lang");
+
+const lang: Lang = urlLang === "en" ? "en" : "es";
+
+const t = translations[lang];
 ---
 
-<MainLayout title="Sectores">
+<MainLayout title="Sectores" t={t} lang={lang}>
 
-  <SectoresInfo />
+  <SectoresInfo t={t} lang={lang}/>
   
 </MainLayout>
