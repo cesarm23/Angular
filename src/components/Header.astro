@@ -11,10 +11,20 @@ const { t, lang = "es" } = Astro.props;
 
     <!-- Logo -->
     <a href={`/${lang}`} class="flex items-center">
+      <!-- Claro -->
       <img
-        src="/images/Logo.png"
+        id="logo-light"
+        src="/images/Logo-light.png"
         alt="ATS Logo"
-        class="h-9 w-auto md:h-12"
+        class="block h-10 w-auto md:h-19"
+      />
+
+      <!-- Oscuro -->
+      <img
+        id="logo-dark"
+        src="/images/Logo-dark.png"
+        alt="ATS Logo"
+        class="hidden h-10 w-auto md:h-18"
       />
     </a>
 
@@ -86,13 +96,14 @@ const { t, lang = "es" } = Astro.props;
   const languageButton = document.getElementById("language-button");
   const languageMenu = document.getElementById("language-menu");
   const languageChevron = document.getElementById("language-chevron");
-  const currentLanguage = document.getElementById("current-language");
   const header = document.getElementById("site-header");
   const isImageHeroPage  = window.location.pathname.includes("/about") ||
   window.location.pathname.includes("/sectores");;
   const themeToggle = document.getElementById("theme-toggle");
   const sunIcon = document.getElementById("sun-icon");
   const moonIcon = document.getElementById("moon-icon");
+  const logoLight = document.getElementById("logo-light") as HTMLImageElement | null;
+  const logoDark = document.getElementById("logo-dark") as HTMLImageElement | null;
 
   const applyTheme = (theme: string) => {
     const isDark = theme === "dark";
@@ -101,6 +112,11 @@ const { t, lang = "es" } = Astro.props;
 
     sunIcon?.classList.toggle("hidden", isDark);
     moonIcon?.classList.toggle("hidden", !isDark);
+
+    if (logoLight && logoDark) {
+      logoLight.style.display = isDark ? "none" : "block";
+      logoDark.style.display = isDark ? "block" : "none";
+    }
   };
 
   const savedTheme = localStorage.getItem("theme") || "dark";
