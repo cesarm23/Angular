@@ -105,7 +105,7 @@ const { t, lang = "es" } = Astro.props;
       </p>
 
       <a
-        href={`/${lang}#hero`}
+        id="back-to-top"
         class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-5 py-3 text-sm text-[var(--text)] transition hover:border-[var(--primary)]/40 hover:bg-[var(--primary)]/10"
       >
         {t.footer.backToTop}
@@ -119,3 +119,13 @@ const { t, lang = "es" } = Astro.props;
   </div>
 
 </footer>
+<script>
+  const backToTop = document.getElementById("back-to-top");
+
+  backToTop?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
